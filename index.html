@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorant Stat Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #tracker-container {
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+        }
+
+        #search-input {
+            padding: 8px;
+            width: 60%;
+        }
+
+        #search-button {
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        #stats-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="tracker-container">
+        <h1>Valorant Stat Tracker</h1>
+        <div>
+            <input type="text" id="search-input" placeholder="Enter Valorant username">
+            <button id="search-button" onclick="searchStats()">Search</button>
+        </div>
+        <div id="stats-container"></div>
+    </div>
+
+    <script>
+        async function searchStats() {
+            const username = document.getElementById('search-input').value;
+
+            if (!username) {
+                alert('Please enter a Valorant username');
+                return;
+            }
+
+            // Replace 'YOUR_API_KEY' with your actual Valorant API key
+            const apiKey = 'RGAPI-7aac4ef4-0726-4b72-8613-cd0cac951212';
+            const apiUrl = `https://api.example.com/valorant/stats?username=${username}&api_key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+
+                if (data.error) {
+                    alert(`Error: ${data.error}`);
+                } else {
+                    displayStats(data);
+                }
+            } catch (error) {
+                console.error('Error fetching Valorant stats:', error);
+                alert('Error fetching Valorant stats. Please try again later.');
+            }
+        }
+
+        function displayStats(stats) {
+            const statsContainer = document.getElementById('stats-container');
+            statsContainer.innerHTML = '';
+
+            // Customize the display of the retrieved stats based on your requirements
+            const statElements = Object.entries(stats).map(([stat, value]) => {
+                return `<p><strong>${stat}:</strong> ${value}</p>`;
+            });
+
+            statsContainer.innerHTML = statElements.join('');
+        }
+    </script>
+</body>
+</html>
