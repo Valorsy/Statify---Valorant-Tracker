@@ -33,7 +33,7 @@
 
         #download-button,
         #github-button {
-            padding: 10px 20px;
+            padding: 12px 24px;
             cursor: pointer;
             border: none;
             border-radius: 5px;
@@ -41,6 +41,7 @@
             margin-top: 20px;
             text-decoration: none;
             display: inline-block;
+            transition: transform 0.3s ease-in-out;
         }
 
         #download-button {
@@ -55,6 +56,11 @@
 
         #stats-container {
             margin-top: 20px;
+        }
+
+        #download-button:hover,
+        #github-button:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
