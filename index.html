@@ -3,42 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valorant Stat Tracker</title>
+    <title>Statify - Valorant Stat Tracker</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
         }
 
         #tracker-container {
-            max-width: 600px;
-            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
 
         #search-input {
             padding: 8px;
             width: 60%;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
         }
 
         #search-button {
-            padding: 8px;
+            padding: 8px 15px;
             cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
         }
 
         #stats-container {
             margin-top: 20px;
         }
+
+        #github-button {
+            margin-top: 20px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
     <div id="tracker-container">
-        <h1>Valorant Stat Tracker</h1>
+        <h1 style="color: #4CAF50;">Statify - Valorant Stat Tracker</h1>
         <div>
             <input type="text" id="search-input" placeholder="Enter Valorant username">
             <button id="search-button" onclick="searchStats()">Search</button>
         </div>
         <div id="stats-container"></div>
+        <a href="https://github.com/your-username/your-repository" target="_blank" id="github-button">GitHub Repository</a>
     </div>
 
     <script>
@@ -51,7 +78,7 @@
             }
 
             // Replace 'YOUR_API_KEY' with your actual Valorant API key
-            const apiKey = 'RGAPI-7aac4ef4-0726-4b72-8613-cd0cac951212';
+            const apiKey = 'YOUR_API_KEY';
             const apiUrl = `https://api.example.com/valorant/stats?username=${username}&api_key=${apiKey}`;
 
             try {
