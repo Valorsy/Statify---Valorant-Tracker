@@ -31,30 +31,30 @@
             color: #FF4500;
         }
 
-        #download-button {
-            padding: 15px 30px;
+        #download-button,
+        #github-button {
+            padding: 10px 20px;
             cursor: pointer;
-            background-color: #4CAF50;
-            color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 5px;
             font-size: 16px;
             margin-top: 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        #download-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #github-button {
+            background-color: #333;
+            color: #fff;
         }
 
         #stats-container {
             margin-top: 20px;
-        }
-
-        #github-button {
-            margin-top: 20px;
-            background-color: #333;
-            color: #fff;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            display: inline-block;
         }
     </style>
 </head>
@@ -62,7 +62,7 @@
     <div id="tracker-container">
         <h1>Statify - Valorant Stat Tracker</h1>
         <div id="stats-container"></div>
-        <button id="download-button" onclick="downloadStats()">Download Stats</button>
+        <button id="download-button" onclick="downloadStats()">Download Statify</button>
         <a href="https://github.com/Valorsy/Statify---Valorant-Tracker" target="_blank" id="github-button">GitHub Repository</a>
     </div>
 
